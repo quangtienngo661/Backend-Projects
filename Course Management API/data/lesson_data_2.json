@@ -1,0 +1,14 @@
+[
+    {
+        "title": "What is React?",
+        "content": "Introduction to React library, its benefits, and why it's popular for building user interfaces. Learn about components and the virtual DOM."
+    },
+    {
+        "title": "Creating Your First Component",
+        "content": "Step-by-step guide to creating functional and class components in React. Learn about JSX syntax and component structure."
+    },
+    {
+        "title": "State and Props",
+        "content": "Understanding the difference between state and props. Learn how to manage component state and pass data between components."
+    }
+]

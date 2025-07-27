@@ -1,0 +1,65 @@
+[
+  {
+    "rating": 5,
+    "comment": "Excellent course! The instructor explains JavaScript concepts very clearly. Perfect for beginners."
+  },
+  {
+    "rating": 4,
+    "comment": "Great content and well-structured lessons. Would have liked more practical examples."
+  },
+  {
+    "rating": 5,
+    "comment": "Amazing course! I went from zero JavaScript knowledge to building my first web app."
+  },
+  {
+    "rating": 4,
+    "comment": "Good introduction to React. The component examples were really helpful for understanding the concepts."
+  },
+  {
+    "rating": 5,
+    "comment": "Outstanding course! The hands-on projects really helped me grasp React fundamentals."
+  },
+  {
+    "rating": 3,
+    "comment": "Decent course but could use more advanced topics. Good for absolute beginners though."
+  },
+  {
+    "rating": 5,
+    "comment": "Fantastic course! Covers everything from basics to advanced data analysis. Highly recommended!"
+  },
+  {
+    "rating": 4,
+    "comment": "Very comprehensive course. The Pandas and Matplotlib sections were particularly useful."
+  },
+  {
+    "rating": 4,
+    "comment": "Great practical approach to learning data science. Projects were challenging but rewarding."
+  },
+  {
+    "rating": 5,
+    "comment": "Perfect course for learning backend development. The API building section was incredibly detailed."
+  },
+  {
+    "rating": 4,
+    "comment": "Solid course content. Helped me understand how to build scalable backend applications."
+  },
+  {
+    "rating": 3,
+    "comment": "Good course but pacing was a bit fast. Would benefit from more step-by-step explanations."
+  },
+  {
+    "rating": 5,
+    "comment": "Excellent introduction to ML concepts. Complex topics explained in an easy-to-understand way."
+  },
+  {
+    "rating": 4,
+    "comment": "Great theoretical foundation. Would love to see more hands-on coding examples."
+  },
+  {
+    "rating": 4
+  },
+  {
+    "rating": 5,
+    "comment": "Life-changing course! Highly recommend to anyone interested in data science."
+  }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Python Data Science",
+        "description": "Master data analysis and visualization with Python",
+        "price": 179.99,
+        "createdBy": "6882fb2cf2b8190286c9b1fc"
+    },
+    {
+        "title": "Machine Learning Basics",
+        "description": "Introduction to ML algorithms and practical applications",
+        "price": 249.99,
+        "createdBy": "6882fb2cf2b8190286c9b1fc"
+    },
+    {
+        "title": "Database Design with MongoDB",
+        "description": "Learn NoSQL database design and optimization",
+        "price": 129.99,
+        "createdBy": "6882fb2cf2b8190286c9b1fc"
+    }
+]

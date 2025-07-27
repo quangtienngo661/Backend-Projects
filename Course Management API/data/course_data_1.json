@@ -1,0 +1,20 @@
+[
+    {
+        "title": "JavaScript Fundamentals",
+        "description": "Learn the basics of JavaScript programming language",
+        "price": 99.99,
+        "createdBy": "6882fb2cf2b8190286c9b1fb"
+    },
+    {
+        "title": "React for Beginners",
+        "description": "Build modern web applications with React",
+        "price": 149.99,
+        "createdBy": "6882fb2cf2b8190286c9b1fb"
+    },
+    {
+        "title": "Node.js Backend Development",
+        "description": "Create robust backend APIs with Node.js and Express",
+        "price": 199.99,
+        "createdBy": "6882fb2cf2b8190286c9b1fb"
+    }
+]
