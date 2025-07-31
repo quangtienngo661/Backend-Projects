@@ -10,6 +10,6 @@ const userSchema = mongoose.Schema({
         default: 'student',
         required: true
     }
-}, { timestamp: true });
+}, { timestamps: true });
 
 module.exports = mongoose.model("User", userSchema);

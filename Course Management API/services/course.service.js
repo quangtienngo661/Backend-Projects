@@ -9,8 +9,8 @@ exports.getAllCourses = async (req, res, next) => {
 }
 
 exports.getOneCourse = async (req, res, next) => {
-    const { id } = req.params;
-    const course = await Course.findById(id);
+    const { courseId } = req.params;
+    const course = await Course.findById(courseId);
     if (!course) {
         throw new AppError('Course not found', 404);
     }
@@ -32,11 +32,11 @@ exports.createCourse = async (req, res, next) => {
 }
 
 exports.updateOneCourse = async (req, res, next) => {
-    const { id } = req.params
+    const { courseId } = req.params
     const courseInfo = { ...req.body };
 
     const updatedCourse = await Course.findByIdAndUpdate(
-        id,
+        courseId,
         { ...courseInfo },
         {
             new: true,           // Return the updated document
@@ -53,9 +53,9 @@ exports.updateOneCourse = async (req, res, next) => {
 }
 
 exports.deleteOneCourse = async (req, res, next) => {
-    const { id } = req.params
+    const { courseId } = req.params
 
-    const deletedCourse = await Course.findByIdAndDelete(id).populate('createdBy');
+    const deletedCourse = await Course.findByIdAndDelete(courseId).populate('createdBy');
 
     if (!deletedCourse) {
         throw new AppError("Course not found", 404);
@@ -67,8 +67,8 @@ exports.deleteOneCourse = async (req, res, next) => {
 exports.getCourseLesson = async (req, res, next) => {
     try {
         const [lessons, countLessons] = await Promise.all([
-            Lesson.find({ courseId: req.params.id }),
-            Lesson.countDocuments({ courseId: req.params.id })
+            Lesson.find({ courseId: req.params.courseId }),
+            Lesson.countDocuments({ courseId: req.params.courseId })
         ])
 
         console.log("get courses' lessons service")
@@ -82,7 +82,7 @@ exports.getCourseLesson = async (req, res, next) => {
 exports.createLesson = async (req, res, next) => {
     const lessonInfo = { ...req.body }; // TODO: lesson info validation
 
-    const courseId = req.params.id;
+    const courseId = req.params.courseId;
 
     const newLesson = await Lesson.create({
         ...lessonInfo,
@@ -98,8 +98,33 @@ exports.createLesson = async (req, res, next) => {
     return populatedLesson;
 }
 
+exports.updateLesson = async (req, res, next) => {
+    const lessonInfo = { ...req.body }; 
+    const updatedLesson = await Lesson.findByIdAndUpdate(
+        req.params.lessonId, 
+        { ...lessonInfo }, 
+        { new: true, runValidators: true }
+
+    )
+
+    if (!updatedLesson) {
+        throw new AppError("Lesson not found", 404)
+    }
+
+    return updatedLesson;
+}
+
+exports.deleteLesson = async (req, res, next) => {
+    const deletedLesson = await Lesson.findByIdAndDelete(req.params.lessonId);
+    if (!deletedLesson) {
+        throw new AppError("Lesson not found", 404)
+    }
+
+    return deletedLesson;
+}
+
 exports.getCourseReviews = async (req, res, next) => {
-    const courseId = req.params.id;
+    const courseId = req.params.courseId;
     const [reviews, countReviews] = await Promise.all([
         Review.find({ courseId }),
         Review.countDocuments({ courseId }),
@@ -110,7 +135,7 @@ exports.getCourseReviews = async (req, res, next) => {
 
 exports.postReview = async (req, res, next) => {
     const studentId = req.user.id;
-    const courseId = req.params.id;
+    const courseId = req.params.courseId;
     const reviewInfo = { ...req.body };
     console.log(reviewInfo)
 
@@ -122,4 +147,28 @@ exports.postReview = async (req, res, next) => {
 
     const populatedReview = await Review.findById(newReview._id);
     return populatedReview;
+}
+
+exports.updateReview = async (req, res, next) => {
+    const reviewInfo = { ...req.body }; 
+    const updatedReview = await Review.findByIdAndUpdate(
+        req.params.reviewId, 
+        { ...reviewInfo }, 
+        { new: true, runValidators: true }
+    )
+
+    if (!updatedReview) {
+        throw new AppError("Review not found", 404)
+    }
+
+    return updatedReview;
+}
+
+exports.deleteReview = async (req, res, next) => {
+    const deletedReview = await Review.findByIdAndDelete(req.params.reviewId);
+    if (!deletedReview) {
+        throw new AppError("Review not found", 404)
+    }
+
+    return deletedReview;
 }

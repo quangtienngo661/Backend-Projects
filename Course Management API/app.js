@@ -7,14 +7,14 @@ const enrollmentRoute = require('./routes/enrollment.routes');
 const authMiddleware = require('./middlewares/auth.middleware')
 const connectDB = require('./configs/db');
 const { restrictToRole } = require('./middlewares/role.middleware');
+const { validateRequest } = require('./middlewares/validation.middleware');
 
 connectDB();
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 // User Authentication
-// TODO: user register and login validation
 app.use('/api/users', userRoutes);
 
 // Course API

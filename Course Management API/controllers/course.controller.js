@@ -103,7 +103,11 @@ const getCourseLesson = async (req, res, next) => {
             lessons
         })
     } catch (error) {
-
+        if (error instanceof AppError) {
+            return next(error)
+        } else {
+            return next(new AppError(error.message, 500))
+        }
     }
 }
 
@@ -139,6 +143,37 @@ const getCourseReviews = async (req, res, next) => {
     }
 }
 
+const updateLesson = async (req, res, next) => {
+    try {
+        const updatedLesson = await courseService.updateLesson(req, res, next);
+        return res.status(200).json({
+            msg: 'Lesson updated successfully',
+            updatedLesson
+        })
+    } catch (error) {
+        if (error instanceof AppError) {
+            return next(error)
+        } else {
+            return next(new AppError(error.message, 500))
+        }
+    }
+}
+
+const deleteLesson = async (req, res, next) => {
+    try {
+        const deletedLesson = await courseService.deleteLesson(req, res, next);
+        return res.status(200).json({
+            msg: 'Lesson deleted successfully',
+            deletedLesson
+        })
+    } catch (error) {
+        if (error instanceof AppError) {
+            return next(error)
+        } else {
+            return next(new AppError(error.message, 500))
+        }
+    }
+}
 
 const postReview = async (req, res, next) => {
     try {
@@ -156,6 +191,39 @@ const postReview = async (req, res, next) => {
     }
 }
 
+const updateReview = async (req, res, next) => {
+    try {
+        const updatedReview = await courseService.updateReview(req, res, next);
+        return res.status(200).json({
+            msg: 'Review updated successfully',
+            updatedReview
+        })
+    } catch (error) {
+        if (error instanceof AppError) {
+            return next(error)
+        } else {
+            return next(new AppError(error.message, 500))
+        }
+    }
+}
+
+const deleteReview = async (req, res, next) => {
+    try {
+        const deletedReview = await courseService.deleteReview(req, res, next);
+        return res.status(200).json({
+            msg: 'Review deleted successfully',
+            deletedReview
+        })
+    } catch (error) {
+        if (error instanceof AppError) {
+            return next(error)
+        } else {
+            return next(new AppError(error.message, 500))
+        }
+    }
+}
+
+
 module.exports = {
     getAllCourses,
     getOneCourse,
@@ -164,6 +232,10 @@ module.exports = {
     deleteOneCourse,
     getCourseLesson,
     createLesson,
+    updateLesson,
+    deleteLesson,
     getCourseReviews,
-    postReview
+    postReview,
+    updateReview,
+    deleteReview
 } 
