@@ -1,27 +1,34 @@
 const express = require('express');
+
+const connectDB = require('./configs/db');
+const authMiddleware = require('./middlewares/auth.middleware');
 const globalErrorHandler = require('./middlewares/globalErrorHandler.middleware');
 const app = express();
-const userRoutes = require('./routes/user.routes');
+const { restrictToRole } = require('./middlewares/role.middleware');
 const courseRoutes = require('./routes/course.routes');
 const enrollmentRoute = require('./routes/enrollment.routes');
-const authMiddleware = require('./middlewares/auth.middleware')
-const connectDB = require('./configs/db');
-const { restrictToRole } = require('./middlewares/role.middleware');
-const { validateRequest } = require('./middlewares/validation.middleware');
+const userRoutes = require('./routes/user.routes');
+const { success, failure } = require('./utils/response');
 
 connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+  res.ok = (data, status = 200, meta) => success(res, data, status, meta);
+  res.fail = (error, status = error.statusCode) => failure(res, error, status);
+  next();
+});
+
 // User Authentication
 app.use('/api/users', userRoutes);
 
 // Course API
-app.use('/api/courses', authMiddleware, courseRoutes)
+app.use('/api/courses', authMiddleware, courseRoutes);
 
 // Enrollment API
-app.use('/api/enrollments', authMiddleware, restrictToRole('student'), enrollmentRoute)
+app.use('/api/enrollments', authMiddleware, restrictToRole('student'), enrollmentRoute);
 
 // Error handler
 app.use(globalErrorHandler);

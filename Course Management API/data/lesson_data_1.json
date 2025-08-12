@@ -1,14 +1,14 @@
 [
-    {
-        "title": "Introduction to JavaScript",
-        "content": "Learn the basics of JavaScript syntax, variables, and data types. This lesson covers the fundamental concepts you need to start programming in JavaScript."
-    },
-    {
-        "title": "Functions and Scope",
-        "content": "Understanding how to create and use functions in JavaScript. Learn about function declarations, expressions, arrow functions, and variable scope."
-    },
-    {
-        "title": "DOM Manipulation",
-        "content": "Learn how to interact with HTML elements using JavaScript. This lesson covers selecting elements, modifying content, and handling events."
-    }
+  {
+    "title": "Introduction to JavaScript",
+    "content": "Learn the basics of JavaScript syntax, variables, and data types. This lesson covers the fundamental concepts you need to start programming in JavaScript."
+  },
+  {
+    "title": "Functions and Scope",
+    "content": "Understanding how to create and use functions in JavaScript. Learn about function declarations, expressions, arrow functions, and variable scope."
+  },
+  {
+    "title": "DOM Manipulation",
+    "content": "Learn how to interact with HTML elements using JavaScript. This lesson covers selecting elements, modifying content, and handling events."
+  }
 ]
