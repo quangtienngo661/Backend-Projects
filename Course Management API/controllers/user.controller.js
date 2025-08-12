@@ -1,31 +1,19 @@
 const userService = require('../services/user.service');
-const AppError = require('../utils/appError');
+const catchAsync = require('../utils/asyncWrapper');
 
-const userRegister = async (req, res, next) => {
-  try {
+const userRegister = catchAsync(async (req, res, next) => {
     const newUser = await userService.userRegister(req, res, next);
-    return res.ok(newUser)
-  } catch (error) {
-    res.fail(error)
-  }
-};
+    return res.ok(newUser, 201);
+});
 
-const userLogin = async (req, res, next) => {
-  try {
+const userLogin = catchAsync(async (req, res, next) => {
     const token = await userService.userLogin(req, res, next);
     return res.ok(token)
-  } catch (error) {
-    res.fail(error)
-  }
-};
+});
 
-const getEnrolledCourses = async (req, res, next) => {
-  try {
-    const { enrollments, countEnrollments } = await userService.getEnrolledCourses(req, res, next);
+const getEnrolledCourses = catchAsync(async (req, res, next) => {
+    const { enrollments } = await userService.getEnrolledCourses(req, res, next);
     return res.ok(enrollments)
-  } catch (error) {
-    res.fail(error)
-  }
-};
+});
 
 module.exports = { userRegister, userLogin, getEnrolledCourses };

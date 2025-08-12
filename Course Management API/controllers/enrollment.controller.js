@@ -1,12 +1,8 @@
 const enrollmentService = require('../services/enrollment.service');
 
-const enrollCourse = async (req, res, next) => {
-  try {
+const enrollCourse = catchAsync(async (req, res, next) => {
     const studentEnrolled = await enrollmentService.enrollCourse(req, res, next);
-    return res.ok(studentEnrolled)
-  } catch (error) {
-    res.fail(error)
-  }
-};
+    return res.ok(studentEnrolled, 201)
+});
 
 module.exports = { enrollCourse };

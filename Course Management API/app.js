@@ -8,7 +8,7 @@ const { restrictToRole } = require('./middlewares/role.middleware');
 const courseRoutes = require('./routes/course.routes');
 const enrollmentRoute = require('./routes/enrollment.routes');
 const userRoutes = require('./routes/user.routes');
-const { success, failure } = require('./utils/response');
+const { success } = require('./utils/response');
 
 connectDB();
 
@@ -17,7 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   res.ok = (data, status = 200, meta) => success(res, data, status, meta);
-  res.fail = (error, status = error.statusCode) => failure(res, error, status);
   next();
 });
 
