@@ -1,4 +1,6 @@
+const cors = require('cors');
 const express = require('express');
+const helmet = require('helmet');
 
 const connectDB = require('./configs/db');
 const authMiddleware = require('./middlewares/auth.middleware');
@@ -14,10 +16,17 @@ connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(helmet());
+app.use(cors()); // TODO: cors configuration will be finished after deploying
 
 app.use((req, res, next) => {
   res.ok = (data, status = 200, meta) => success(res, data, status, meta);
   next();
+});
+
+// / page
+app.use('/', (req, res) => {
+  return res.end('Course Management System');
 });
 
 // User Authentication

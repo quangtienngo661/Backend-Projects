@@ -34,7 +34,7 @@ exports.userRegister = async (req, _res, _next) => {
 
 exports.userLogin = async (req, _res, _next) => {
   const userInfo = { ...req.body };
-  const user = await User.findOne({ email: userInfo.email });
+  const user = await User.findOne({ email: userInfo.email }).select('+password');
   if (!user) {
     throw new AppError('Invalid email or password', 404);
   }
