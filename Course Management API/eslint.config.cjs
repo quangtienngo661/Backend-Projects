@@ -13,6 +13,7 @@ module.exports = [
       '**/.husky/**',
       '**/.vscode/**',
       '**/.env',
+      '**/temp/**'
     ],
   },
   {
