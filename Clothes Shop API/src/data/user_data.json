@@ -1,0 +1,43 @@
+[
+    {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "hashedPassword123",
+        "role": "user",
+        "address": "123 Main Street, New York, NY 10001",
+        "phone": "+1-555-0123",
+        "avatar": "https://example.com/avatars/john-doe.jpg"
+    },
+    {
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "password": "hashedPassword456",
+        "role": "admin",
+        "address": "456 Oak Avenue, Los Angeles, CA 90210",
+        "phone": "+1-555-0456",
+        "avatar": "https://example.com/avatars/jane-smith.jpg"
+    },
+    {
+        "name": "Mike Johnson",
+        "email": "mike.johnson@example.com",
+        "password": "hashedPassword789",
+        "role": "user",
+        "address": "789 Pine Road, Chicago, IL 60601",
+        "phone": "+1-555-0789",
+        "avatar": "https://example.com/avatars/mike-johnson.jpg"
+    },
+    {
+        "name": "Sarah Wilson",
+        "email": "sarah.wilson@example.com",
+        "password": "hashedPassword101",
+        "address": "321 Elm Street, Houston, TX 77001",
+        "phone": "+1-555-0321"
+    },
+    {
+        "name": "David Brown",
+        "email": "david.brown@example.com",
+        "password": "hashedPassword202",
+        "role": "user",
+        "avatar": "https://example.com/avatars/david-brown.jpg"
+    }
+]
