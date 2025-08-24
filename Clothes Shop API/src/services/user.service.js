@@ -1,8 +1,8 @@
-const User = require('../models/User');
-const AppError = require('../utils/AppError');
-const hashPassword = require('../utils/hashPassword');
+const User = require('../models/User.model');
+const AppError = require('../utils/AppError.util');
+const hashPassword = require('../utils/hashPassword.util');
 const bcrypt = require('bcryptjs');
-const jwtSign = require('../utils/jwtSign');
+const jwtSign = require('../utils/jwtSign.util');
 
 exports.userRegister = async (req, res, next) => {
     const userInfo = { ...req.body };

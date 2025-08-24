@@ -1,4 +1,4 @@
-const AppError = require("../utils/AppError");
+const AppError = require("../utils/AppError.util");
 
 const whiteList = ['http://localhost:3000', 'http://127.0.0.1:5500'];
 

@@ -1,5 +1,5 @@
 const rateLimit = require("express-rate-limit");
-const { failure } = require("../utils/responseHelper");
+const { failure } = require("../utils/responseHelper.util");
 
 const globalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,

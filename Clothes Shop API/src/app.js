@@ -1,15 +1,15 @@
 const express = require('express');
 const cors = require('cors')
 
-const connectDB = require('./configs/db');
-const { success } = require('./utils/responseHelper');
+const connectDB = require('./configs/db.config');
+const { success } = require('./utils/responseHelper.util');
 const userRoutes = require('./routes/user.route'); 
-const errorHandler = require('./middlewares/errorHandler');
-const auth = require('./middlewares/auth');
-const { restrictToRole } = require('./middlewares/role');
+const errorHandler = require('./middlewares/errorHandler.middleware');
+const auth = require('./middlewares/auth.middleware');
+const { restrictToRole } = require('./middlewares/role.middleware');
 const helmet = require('helmet');
-const { globalLimiter } = require('./configs/rateLimit');
-const corsConfig = require('./configs/cors');
+const { globalLimiter } = require('./configs/rateLimit.config');
+const corsConfig = require('./configs/cors.config');
 
 const app = express();
 connectDB();

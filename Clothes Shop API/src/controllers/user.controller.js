@@ -1,4 +1,4 @@
-const catchAsync = require("../utils/catchAsync");
+const catchAsync = require("../utils/catchAsync.util");
 const userService = require("../services/user.service")
 
 const userRegister = catchAsync(async (req, res, next) => {

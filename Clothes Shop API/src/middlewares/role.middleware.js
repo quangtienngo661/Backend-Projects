@@ -1,7 +1,7 @@
 require('dotenv').config();
 
-const AppError = require("../utils/AppError");
-const catchAsync = require("../utils/catchAsync"); // The issue is that catchAsync expects a function that returns a Promise, but you're returning a function that returns another function.
+const AppError = require("../utils/AppError.util");
+const catchAsync = require("../utils/catchAsync.util"); // The issue is that catchAsync expects a function that returns a Promise, but you're returning a function that returns another function.
 
 const restrictToRole = (...roles) => {
     return (req, res, next) => {

@@ -1,4 +1,4 @@
-const { failure } = require("../utils/responseHelper")
+const { failure } = require("../utils/responseHelper.util")
 
 const errorHandler = (err, req, res, next) => {
     // Provide default status code if not set

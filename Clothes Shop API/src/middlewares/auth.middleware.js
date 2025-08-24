@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const AppError = require("../utils/AppError");
-const catchAsync = require("../utils/catchAsync");
+const AppError = require("../utils/AppError.util");
+const catchAsync = require("../utils/catchAsync.util");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
