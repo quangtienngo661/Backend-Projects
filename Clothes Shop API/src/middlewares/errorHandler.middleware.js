@@ -5,9 +5,9 @@ const errorHandler = (err, req, res, next) => {
     const status = err.statusCode || 500;
 
     // Log error for debugging (optional)
-    // if (process.env.NODE_ENV !== 'production') {
-    //     console.error('Error caught by global handler:', err);
-    // }
+    if (process.env.NODE_ENV !== 'production') {
+        console.error('Error caught by global handler:', err);
+    }
 
     return failure(res, err, status);
 }

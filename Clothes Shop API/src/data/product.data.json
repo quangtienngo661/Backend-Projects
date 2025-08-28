@@ -1,0 +1,185 @@
+[
+    {
+        "name": "Classic Cotton T-Shirt",
+        "description": "Comfortable 100% cotton t-shirt perfect for everyday wear. Soft fabric with a relaxed fit.",
+        "price": 25.99,
+        "discount": 10,
+        "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+        "colors": ["White", "Black", "Navy", "Gray", "Red"],
+        "stock": 150,
+        "images": [
+            "https://example.com/images/cotton-tshirt-front.jpg",
+            "https://example.com/images/cotton-tshirt-back.jpg",
+            "https://example.com/images/cotton-tshirt-side.jpg"
+        ],
+        "category": "T-Shirts",
+        "isActive": true
+    },
+    {
+        "name": "Slim Fit Jeans",
+        "description": "Modern slim-fit jeans made from premium denim with stretch for comfort and style.",
+        "price": 89.99,
+        "discount": 0,
+        "sizes": ["28", "30", "32", "34", "36", "38"],
+        "colors": ["Dark Blue", "Light Blue", "Black", "Indigo"],
+        "stock": 75,
+        "images": [
+            "https://example.com/images/slim-jeans-front.jpg",
+            "https://example.com/images/slim-jeans-back.jpg"
+        ],
+        "category": "Jeans",
+        "isActive": true
+    },
+    {
+        "name": "Elegant Evening Dress",
+        "description": "Sophisticated evening dress perfect for special occasions. Features elegant draping and flattering silhouette.",
+        "price": 149.99,
+        "discount": 25,
+        "sizes": ["XS", "S", "M", "L", "XL"],
+        "colors": ["Black", "Navy", "Burgundy", "Emerald"],
+        "stock": 30,
+        "images": [
+            "https://example.com/images/evening-dress-front.jpg",
+            "https://example.com/images/evening-dress-detail.jpg",
+            "https://example.com/images/evening-dress-back.jpg"
+        ],
+        "category": "Dresses",
+        "isActive": true
+    },
+    {
+        "name": "Cozy Wool Sweater",
+        "description": "Warm and comfortable wool blend sweater with cable knit pattern. Perfect for cold weather.",
+        "price": 75.50,
+        "discount": 15,
+        "sizes": ["S", "M", "L", "XL"],
+        "colors": ["Cream", "Gray", "Brown", "Forest Green"],
+        "stock": 45,
+        "images": [
+            "https://example.com/images/wool-sweater-front.jpg",
+            "https://example.com/images/wool-sweater-texture.jpg"
+        ],
+        "category": "Sweaters",
+        "isActive": true
+    },
+    {
+        "name": "Athletic Running Shorts",
+        "description": "Lightweight and breathable running shorts with moisture-wicking technology.",
+        "price": 35.00,
+        "discount": 0,
+        "sizes": ["S", "M", "L", "XL"],
+        "colors": ["Black", "Navy", "Gray", "Electric Blue"],
+        "stock": 100,
+        "images": [
+            "https://example.com/images/running-shorts-front.jpg",
+            "https://example.com/images/running-shorts-side.jpg"
+        ],
+        "category": "Athletic Wear",
+        "isActive": true
+    },
+    {
+        "name": "Vintage Denim Jacket",
+        "description": "Classic denim jacket with vintage wash and authentic distressing details.",
+        "price": 120.00,
+        "discount": 20,
+        "sizes": ["XS", "S", "M", "L", "XL"],
+        "colors": ["Light Wash", "Medium Wash", "Dark Wash"],
+        "stock": 25,
+        "images": [
+            "https://example.com/images/denim-jacket-front.jpg",
+            "https://example.com/images/denim-jacket-back.jpg",
+            "https://example.com/images/denim-jacket-detail.jpg"
+        ],
+        "category": "Jackets",
+        "isActive": true
+    },
+    {
+        "name": "Business Casual Blazer",
+        "description": "Professional blazer suitable for business meetings and formal occasions.",
+        "price": 199.99,
+        "discount": 0,
+        "sizes": ["S", "M", "L", "XL", "XXL"],
+        "colors": ["Black", "Navy", "Charcoal", "Brown"],
+        "stock": 20,
+        "images": [
+            "https://example.com/images/blazer-front.jpg",
+            "https://example.com/images/blazer-detail.jpg"
+        ],
+        "category": "Blazers",
+        "isActive": true
+    },
+    {
+        "name": "Summer Floral Blouse",
+        "description": "Light and airy blouse with beautiful floral print, perfect for summer days.",
+        "price": 45.00,
+        "discount": 30,
+        "sizes": ["XS", "S", "M", "L"],
+        "colors": ["Pink Floral", "Blue Floral", "White Floral"],
+        "stock": 60,
+        "images": [
+            "https://example.com/images/floral-blouse-front.jpg",
+            "https://example.com/images/floral-blouse-pattern.jpg"
+        ],
+        "category": "Blouses",
+        "isActive": true
+    },
+    {
+        "name": "Cargo Pants",
+        "description": "Functional cargo pants with multiple pockets and durable construction.",
+        "price": 65.99,
+        "discount": 0,
+        "sizes": ["30", "32", "34", "36", "38", "40"],
+        "colors": ["Khaki", "Olive", "Black", "Gray"],
+        "stock": 40,
+        "images": [
+            "https://example.com/images/cargo-pants-front.jpg",
+            "https://example.com/images/cargo-pants-pockets.jpg"
+        ],
+        "category": "Pants",
+        "isActive": true
+    },
+    {
+        "name": "Luxury Silk Scarf",
+        "description": "Premium silk scarf with elegant design. Perfect accessory for any outfit.",
+        "price": 85.00,
+        "discount": 0,
+        "sizes": ["One Size"],
+        "colors": ["Gold", "Silver", "Rose Gold", "Navy", "Burgundy"],
+        "stock": 15,
+        "images": [
+            "https://example.com/images/silk-scarf-display.jpg",
+            "https://example.com/images/silk-scarf-pattern.jpg"
+        ],
+        "category": "Accessories",
+        "isActive": true
+    },
+    {
+        "name": "Out of Stock Vintage Tee",
+        "description": "Limited edition vintage t-shirt - currently out of stock.",
+        "price": 55.00,
+        "discount": 0,
+        "sizes": ["S", "M", "L"],
+        "colors": ["Faded Black", "Vintage White"],
+        "stock": 0,
+        "images": [
+            "https://example.com/images/vintage-tee-front.jpg"
+        ],
+        "category": "T-Shirts",
+        "isActive": false
+    },
+    {
+        "name": "Winter Wool Coat",
+        "description": "Elegant wool coat for cold winter days. Features button closure and side pockets.",
+        "price": 299.99,
+        "discount": 40,
+        "sizes": ["XS", "S", "M", "L", "XL"],
+        "colors": ["Black", "Camel", "Gray", "Navy"],
+        "stock": 18,
+        "images": [
+            "https://example.com/images/wool-coat-front.jpg",
+            "https://example.com/images/wool-coat-side.jpg",
+            "https://example.com/images/wool-coat-detail.jpg"
+        ],
+        "category": "Coats",
+        "isActive": true
+    }
+]

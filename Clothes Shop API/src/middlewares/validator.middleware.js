@@ -8,7 +8,8 @@ const validateRequest = (req, res, next) => {
             // instead of using "return" keyword, use a direct object to get the value
             field: error.path, 
             message: error.msg,
-            value: error.value
+            value: error.value, 
+            location: error.location
         }))  
 
         return res.status(400).json({

@@ -51,3 +51,5 @@ exports.userLogin = async (req, res, next) => {
 
     return accessToken;
 }
+
+// TODO: Forget password, change password, user info, get all user (admin only), refresh token, otp verification
