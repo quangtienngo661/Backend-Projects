@@ -3,6 +3,7 @@ const AppError = require('../utils/AppError.util');
 const hashPassword = require('../utils/hashPassword.util');
 const bcrypt = require('bcryptjs');
 const jwtSign = require('../utils/jwtSign.util');
+const Cart = require('../models/Cart.model');
 
 exports.userRegister = async (req, res, next) => {
     const userInfo = { ...req.body };
@@ -23,6 +24,13 @@ exports.userRegister = async (req, res, next) => {
         ...userInfo, 
         password: hashedPassword
     });
+
+    if (userInfo.role !== 'admin') {
+        await Cart.create({
+            user: newUser._id,
+            items: []
+        })
+    }
 
     return newUser;
 }
@@ -52,4 +60,5 @@ exports.userLogin = async (req, res, next) => {
     return accessToken;
 }
 
-// TODO: Forget password, change password, user info, get all user (admin only), refresh token, otp verification
+// TODO: Forget password, change password, user info, get all user (admin only),
+// remove account, refresh token, otp verification

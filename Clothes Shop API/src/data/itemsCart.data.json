@@ -1,0 +1,92 @@
+[
+    {
+        "product": "64a1b2c3d4e5f6789abc2001",
+        "quantity": 2,
+        "size": "M",
+        "color": "Black"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2002",
+        "quantity": 1,
+        "size": "32",
+        "color": "Dark Blue"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2003",
+        "quantity": 1,
+        "size": "S",
+        "color": "Emerald"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2004",
+        "quantity": 3,
+        "size": "L",
+        "color": "Forest Green"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2005",
+        "quantity": 2,
+        "size": "M",
+        "color": "Electric Blue"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2006",
+        "quantity": 1,
+        "size": "XL",
+        "color": "Light Wash"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2007",
+        "quantity": 1,
+        "size": "L",
+        "color": "Navy"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2008",
+        "quantity": 2,
+        "size": "M",
+        "color": "Blue Floral"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2009",
+        "quantity": 1,
+        "size": "36",
+        "color": "Khaki"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2010",
+        "quantity": 1,
+        "size": "One Size",
+        "color": "Rose Gold"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2012",
+        "quantity": 1,
+        "size": "M",
+        "color": "Gray"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2001",
+        "quantity": 5,
+        "size": "XL",
+        "color": "White"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2004",
+        "quantity": 1,
+        "size": "S",
+        "color": "Cream"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2008",
+        "quantity": 3,
+        "size": "L",
+        "color": "Pink Floral"
+    },
+    {
+        "product": "64a1b2c3d4e5f6789abc2009",
+        "quantity": 2,
+        "size": "34",
+        "color": "Olive"
+    }
+]

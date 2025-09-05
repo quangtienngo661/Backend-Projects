@@ -6,6 +6,7 @@ const helmet = require('helmet');
 // Self-built middlewares
 const errorHandler = require('./middlewares/errorHandler.middleware');
 const { restrictToRole } = require('./middlewares/role.middleware');
+const routeNotFoundException = require('./middlewares/routeNotFound.middleware');
 
 // Configs
 const connectDB = require('./configs/db.config');
@@ -18,8 +19,9 @@ const { globalLimiter } = require('./configs/rateLimit.config');
 // Imported routes
 const userRoutes = require('./routes/user.route');
 const productRoutes = require('./routes/product.route');
-const catchAsync = require('./utils/catchAsync.util');
-const routeNotFoundException = require('./middlewares/routeNotFound.middleware');
+const cartRoutes = require('./routes/cart.route');
+const orderRoutes = require('./routes/order.route');
+
 
 const app = express();
 connectDB();
@@ -40,6 +42,8 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/product', productRoutes);
+app.use('/api/v1/cart', cartRoutes);
+app.use('/api/v1/order', orderRoutes);
 
 // Middleware for catching unexisted routes
 // For more specifically, if there is an unmatched route ascendingly, this middleware will run 
@@ -50,3 +54,5 @@ app.use(errorHandler);
 
 module.exports = app;
 
+
+// TODO: api document as swagger

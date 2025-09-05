@@ -10,6 +10,7 @@ const productSchema = mongoose.Schema({
     stock: { type: Number, default: 0 },
     images: [{ type: String }],
     category: { type: String, required: true },
+    category_slug: { type: String, required: true },
     isActive: { type: Boolean, default: true },
 }, { timestamps: true });
 

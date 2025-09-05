@@ -13,6 +13,7 @@
             "https://example.com/images/cotton-tshirt-side.jpg"
         ],
         "category": "T-Shirts",
+        "category_slug": "t-shirts",
         "isActive": true
     },
     {
@@ -28,6 +29,7 @@
             "https://example.com/images/slim-jeans-back.jpg"
         ],
         "category": "Jeans",
+        "category_slug": "jeans",
         "isActive": true
     },
     {
@@ -44,6 +46,7 @@
             "https://example.com/images/evening-dress-back.jpg"
         ],
         "category": "Dresses",
+        "category_slug": "dresses",
         "isActive": true
     },
     {
@@ -59,6 +62,7 @@
             "https://example.com/images/wool-sweater-texture.jpg"
         ],
         "category": "Sweaters",
+        "category_slug": "sweaters",
         "isActive": true
     },
     {
@@ -74,6 +78,7 @@
             "https://example.com/images/running-shorts-side.jpg"
         ],
         "category": "Athletic Wear",
+        "category_slug": "athletic-wear",
         "isActive": true
     },
     {
@@ -90,6 +95,7 @@
             "https://example.com/images/denim-jacket-detail.jpg"
         ],
         "category": "Jackets",
+        "category_slug": "jackets",
         "isActive": true
     },
     {
@@ -105,6 +111,7 @@
             "https://example.com/images/blazer-detail.jpg"
         ],
         "category": "Blazers",
+        "category_slug": "blazers",
         "isActive": true
     },
     {
@@ -120,6 +127,7 @@
             "https://example.com/images/floral-blouse-pattern.jpg"
         ],
         "category": "Blouses",
+        "category_slug": "blouses",
         "isActive": true
     },
     {
@@ -135,6 +143,7 @@
             "https://example.com/images/cargo-pants-pockets.jpg"
         ],
         "category": "Pants",
+        "category_slug": "pants",
         "isActive": true
     },
     {
@@ -150,6 +159,7 @@
             "https://example.com/images/silk-scarf-pattern.jpg"
         ],
         "category": "Accessories",
+        "category_slug": "accessories",
         "isActive": true
     },
     {
@@ -164,6 +174,7 @@
             "https://example.com/images/vintage-tee-front.jpg"
         ],
         "category": "T-Shirts",
+        "category_slug": "t-shirts",
         "isActive": false
     },
     {
@@ -180,6 +191,7 @@
             "https://example.com/images/wool-coat-detail.jpg"
         ],
         "category": "Coats",
+        "category_slug": "coats",
         "isActive": true
     }
 ]

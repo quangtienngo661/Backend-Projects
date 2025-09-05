@@ -1,3 +1,5 @@
+const slugify = require("slugify");
+
 const { default: mongoose } = require('mongoose');
 const Product = require('../models/Product.model');
 const AppError = require('../utils/AppError.util');
@@ -6,17 +8,31 @@ const AppError = require('../utils/AppError.util');
 const limit = 20;
 
 exports.getProducts = async (req, res, next) => {
+    const {
+        minPrice,
+        maxPrice,
+        sizes,
+        colors,
+        category,
+        isActive
+    } = req.query;
     const page = Math.max(1, parseInt(req.query.page) || 1);
     const skip = (page - 1) * limit;
     const allowedSortFields = ['name', 'price', 'category', 'createdAt', 'updatedAt', 'stock'];
     const sortBy = allowedSortFields.includes(req.query.sortBy) ? req.query.sortBy : 'name';
     const direction = req.query.dir === 'desc' ? -1 : 1;
 
-    // TODO: Add filtering capabilities (explaination before coding (FORCED))
+    const filter = {};
+
+    if (minPrice && maxPrice) filter.price = { $gte: minPrice, $lte: maxPrice };
+    if (sizes) filter.sizes = { $in: sizes.split(',') }
+    if (colors) filter.colors = { $in: colors.split(',') };
+    if (category) filter.category_slug = category;
+    if (isActive) filter.isActive = isActive;
 
     const [products, totalProducts] = await Promise.all([
-        Product.find().sort({ [sortBy]: direction }).skip(skip).limit(limit),
-        Product.countDocuments()
+        Product.find(filter).sort({ [sortBy]: direction }).skip(skip).limit(limit),
+        Product.countDocuments(filter)
     ]);
 
     const meta = {
@@ -47,7 +63,10 @@ exports.getOneProduct = async (req, res, next) => {
 exports.createProduct = async (req, res, next) => {
     const productInfo = { ...req.body };
 
-    const newProduct = await Product.create(productInfo);
+    const newProduct = await Product.create({
+        ...productInfo, 
+        category_slug: slugify(productInfo.category, { lower: true, strict: true })
+    })
 
     return newProduct;
 }
