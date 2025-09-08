@@ -5,8 +5,8 @@ const auth = require('../middlewares/auth.middleware');
 const router = express.Router();
 
 router.post('/', auth, restrictToRole('user'), createOrder);
-router.patch('/:orderId', auth, restrictToRole('user'), cancelOrder);
-router.patch('/:orderId', auth, restrictToRole('admin'), updateOrderStatus);
+router.patch('/:orderId/cancel-order', auth, restrictToRole('user'), cancelOrder);
+router.patch('/:orderId/update-order-status', auth, restrictToRole('admin'), updateOrderStatus);
 router.get('/', auth, getOrders);
 router.get('/:orderId', auth, getOrder);
 

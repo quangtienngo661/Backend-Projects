@@ -9,9 +9,9 @@ const options = {
             version: "1.0.0", 
             description: "API docs for my project"
         },
-        server: [
+        servers: [
             {
-                url: "http://localhost:5000/api"
+                url: "http://localhost:5000/api/v1"
             }
         ]
     },

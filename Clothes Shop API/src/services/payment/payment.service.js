@@ -1,6 +1,3 @@
-//https://developers.momo.vn/#/docs/en/aiov2/?id=payment-method
-//parameters
-
 const Order = require('../../models/Order.model');
 const Product = require('../../models/Product.model');
 const AppError = require('../../utils/AppError.util');
@@ -82,3 +79,5 @@ exports.paymentCallback = async (req, res, next) => {
 
     return order
 }
+
+// handling webhook

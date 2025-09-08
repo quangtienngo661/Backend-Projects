@@ -4,11 +4,12 @@ const Order = require("../models/Order.model");
 const Product = require("../models/Product.model");
 const AppError = require("../utils/AppError.util");
 const { pay } = require('../controllers/payment.controller')
+const paymentSevice = require('../services/payment/payment.service')
 
 exports.createOrder = async (req, res, next) => {
-    // const session = await mongoose.startSession();
-    // session.startTransaction();
-    // TODO: un-comment session later
+    // TODO: comment session when developing
+    const session = await mongoose.startSession();
+    session.startTransaction();
     try {
         const { selectedItems, shippingAddress, phone, paymentMethod } = req.body;
         const userId = req.user.id;
@@ -29,7 +30,7 @@ exports.createOrder = async (req, res, next) => {
 
         const userCart = await Cart.findOne({ user: userId })
             .populate("items.product")
-        // .session(session);
+            .session(session);
         if (!userCart) {
             throw new AppError("User's cart not found", 404);
         }
@@ -47,13 +48,13 @@ exports.createOrder = async (req, res, next) => {
                 throw new AppError(`Product ${cartItem.product._id} is no longer available`, 409);
             }
 
-            const updated = await Product.updateOne( // consider using updateOne
+            const updated = await Product.updateOne(
                 {
                     _id: cartItem.product._id,
                     stock: { $gte: cartItem.quantity }
                 },
                 { $inc: { stock: -cartItem.quantity } },
-                // { session }
+                { session }
             );
             if (!updated.matchedCount || !updated.modifiedCount) {
                 throw new AppError(`Not enough stock for product ${cartItem.product._id}`, 409);
@@ -82,36 +83,35 @@ exports.createOrder = async (req, res, next) => {
                 shippingCode: `ORDER-${Date.now()}`,
                 total: total.toFixed(2)
             }],
-            //  { session }
+             { session }
         );
 
         userCart.items = userCart.items.filter(item => {
             return !selectedItems.includes(item._id.toString())
         });
 
-        // await userCart.save({ session });
-        await userCart.save();
-        // await session.commitTransaction();
+        await userCart.save({ session });
+        // await userCart.save();
+        await session.commitTransaction();
 
         if (paymentMethod !== 'COD') {
-            const paymentResult = await pay(newOrder, paymentMethod);
+            const paymentResult = await paymentSevice.pay(newOrder, paymentMethod);
             return paymentResult
         }
 
-        return newOrder; // temporary approach
-        // return newOrder; // temporary approach
+        return newOrder;
     } catch (error) {
-        // await session.abortTransaction();
+        await session.abortTransaction();
         throw new AppError("Aborted transaction: " + error.message, 409);
     } finally {
-        // session.endSession();
+        session.endSession();
     }
 }
 
 exports.cancelOrder = async (req, res, next) => {
-    // const session = await mongoose.startSession();
-    // session.startTransaction();
-    // TODO: un-comment session later
+    // TODO: comment session when developing
+    const session = await mongoose.startSession();
+    session.startTransaction();
     try {
         // TODO: check payment status - in case user has a transaction, will handle returning user's money
         const { orderId } = req.params;
@@ -132,8 +132,8 @@ exports.cancelOrder = async (req, res, next) => {
         order.status = "canceled";
         // TODO: check the payment status, if unpaid, pass, else handle returning money back to the customer
 
-        // await order.save({ session });
-        await order.save();
+        await order.save({ session });
+        // await order.save();
 
         for (const item of order.items) {
             const result = await Product.updateOne(
@@ -142,7 +142,7 @@ exports.cancelOrder = async (req, res, next) => {
                     isActive: true
                 },
                 { $inc: { stock: item.quantity } },
-                // { session }
+                { session }
             )
 
             if (!result.matchedCount || !result.modifiedCount) {
@@ -150,13 +150,13 @@ exports.cancelOrder = async (req, res, next) => {
             }
         }
 
-        // await session.commitTransaction();
+        await session.commitTransaction();
         return order;
     } catch (error) {
-        // await session.abortTransaction();
+        await session.abortTransaction();
         throw new AppError("Aborted transaction: " + error.message, 409);
     } finally {
-        // await session.endSession();
+        await session.endSession();
     }
 }
 
