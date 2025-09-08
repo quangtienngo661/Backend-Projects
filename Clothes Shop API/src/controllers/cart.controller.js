@@ -23,7 +23,8 @@ const updateItemQuantity = catchAsync(async (req, res, next) => {
 })
 
 const cleanCart = catchAsync(async (req, res, next) => { // optional
-
+    const cartAfterCleaning = await cartService.cleanCart(req, res, next);
+    return res.ok(cartAfterCleaning);
 })
 
 module.exports = {

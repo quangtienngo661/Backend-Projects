@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError.util');
 
 exports.productsInCart = async (req, res, next) => {
     const { id } = req.user;
-    const userCart = await Cart.findOne({ user: id }).populate('items.product')
+    const userCart = await Cart.findOne({ user: id }).populate('items.product');
 
     if (!userCart) {
         throw new AppError("User's cart not found", 404);
@@ -41,17 +41,17 @@ exports.addToCart = async (req, res, next) => {
     if (!existingProduct) {
         throw new AppError("Product not found", 404);
     }
-    
+
     if (existingProduct.stock === 0) {
         throw new AppError("This product is out of stock!");
     }
-    
+
     if (quantity > existingProduct.stock) {
         throw new AppError("Item's quantity mustn't be greater than product's stock!");
     }
-    
+
     const existingCartItem = userCart.items.find(
-        item => 
+        item =>
             item.product._id.toString() === product &&
             item.size === size &&
             item.color === color
@@ -89,11 +89,6 @@ exports.removeFromCart = async (req, res, next) => {
     const userId = req.user.id;
     const { itemId } = req.params
 
-    // const { product, size, color } = req.body;
-    // if (!product || !size || !color) {
-    //     throw new AppError("Missing required field of adding new item into cart!", 400)
-    // }
-
     const userCart = await Cart.findOne({ user: userId });
     if (!userCart) {
         throw new AppError("User's cart not found", 404)
@@ -113,13 +108,6 @@ exports.removeFromCart = async (req, res, next) => {
         throw new AppError("Product not found", 404);
     }
 
-    // TODO: move this code block into order service
-    // const remainingStock = existingProduct.stock + userCart.items[itemIndex].quantity;
-    // await Product.findByIdAndUpdate(
-    //     existingProduct._id,
-    //     { stock: remainingStock }
-    // )
-
     userCart.items.splice(itemIndex, 1);
 
     const cartAfterRemovingItem = await userCart.save();
@@ -133,12 +121,12 @@ exports.updateItemQuantity = async (req, res, next) => {
     const { itemId } = req.params;
     const userId = req.user.id;
 
-    
+
     const userCart = await Cart.findOne({ user: userId });
     if (!userCart) {
         throw new AppError("User's cart not found", 404)
     }
-    
+
     const itemIndex = userCart.items.findIndex(
         item => {
             return item._id.toString() === itemId
@@ -173,6 +161,16 @@ exports.updateItemQuantity = async (req, res, next) => {
     return updatedCart;
 }
 
-exports.cleanCart = (req, res, next) => {
-    // TODO: clean cart service
+exports.cleanCart = async (req, res, next) => {
+    const userId = req.user.id
+    const userCart = await Cart.findOne({ user: userId });
+
+    if (!userCart) {
+        throw new AppError("User's cart not found", 404)
+    }
+
+    userCart.items.splice(0, userCart.items.length);
+    await userCart.save();
+
+    return userCart;
 }

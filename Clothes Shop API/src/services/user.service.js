@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwtSign = require('../utils/jwtSign.util');
 const Cart = require('../models/Cart.model');
 
+
 exports.userRegister = async (req, res, next) => {
     const userInfo = { ...req.body };
 

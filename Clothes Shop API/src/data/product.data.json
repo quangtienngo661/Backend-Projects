@@ -2,7 +2,7 @@
     {
         "name": "Classic Cotton T-Shirt",
         "description": "Comfortable 100% cotton t-shirt perfect for everyday wear. Soft fabric with a relaxed fit.",
-        "price": 25.99,
+        "price": 649750,
         "discount": 10,
         "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
         "colors": ["White", "Black", "Navy", "Gray", "Red"],
@@ -19,7 +19,7 @@
     {
         "name": "Slim Fit Jeans",
         "description": "Modern slim-fit jeans made from premium denim with stretch for comfort and style.",
-        "price": 89.99,
+        "price": 2249750,
         "discount": 0,
         "sizes": ["28", "30", "32", "34", "36", "38"],
         "colors": ["Dark Blue", "Light Blue", "Black", "Indigo"],
@@ -35,7 +35,7 @@
     {
         "name": "Elegant Evening Dress",
         "description": "Sophisticated evening dress perfect for special occasions. Features elegant draping and flattering silhouette.",
-        "price": 149.99,
+        "price": 3749750,
         "discount": 25,
         "sizes": ["XS", "S", "M", "L", "XL"],
         "colors": ["Black", "Navy", "Burgundy", "Emerald"],
@@ -52,7 +52,7 @@
     {
         "name": "Cozy Wool Sweater",
         "description": "Warm and comfortable wool blend sweater with cable knit pattern. Perfect for cold weather.",
-        "price": 75.50,
+        "price": 1887500,
         "discount": 15,
         "sizes": ["S", "M", "L", "XL"],
         "colors": ["Cream", "Gray", "Brown", "Forest Green"],
@@ -68,7 +68,7 @@
     {
         "name": "Athletic Running Shorts",
         "description": "Lightweight and breathable running shorts with moisture-wicking technology.",
-        "price": 35.00,
+        "price": 875000,
         "discount": 0,
         "sizes": ["S", "M", "L", "XL"],
         "colors": ["Black", "Navy", "Gray", "Electric Blue"],
@@ -84,7 +84,7 @@
     {
         "name": "Vintage Denim Jacket",
         "description": "Classic denim jacket with vintage wash and authentic distressing details.",
-        "price": 120.00,
+        "price": 3000000,
         "discount": 20,
         "sizes": ["XS", "S", "M", "L", "XL"],
         "colors": ["Light Wash", "Medium Wash", "Dark Wash"],
@@ -101,7 +101,7 @@
     {
         "name": "Business Casual Blazer",
         "description": "Professional blazer suitable for business meetings and formal occasions.",
-        "price": 199.99,
+        "price": 4999750,
         "discount": 0,
         "sizes": ["S", "M", "L", "XL", "XXL"],
         "colors": ["Black", "Navy", "Charcoal", "Brown"],
@@ -117,7 +117,7 @@
     {
         "name": "Summer Floral Blouse",
         "description": "Light and airy blouse with beautiful floral print, perfect for summer days.",
-        "price": 45.00,
+        "price": 1125000,
         "discount": 30,
         "sizes": ["XS", "S", "M", "L"],
         "colors": ["Pink Floral", "Blue Floral", "White Floral"],
@@ -133,7 +133,7 @@
     {
         "name": "Cargo Pants",
         "description": "Functional cargo pants with multiple pockets and durable construction.",
-        "price": 65.99,
+        "price": 1649750,
         "discount": 0,
         "sizes": ["30", "32", "34", "36", "38", "40"],
         "colors": ["Khaki", "Olive", "Black", "Gray"],
@@ -149,7 +149,7 @@
     {
         "name": "Luxury Silk Scarf",
         "description": "Premium silk scarf with elegant design. Perfect accessory for any outfit.",
-        "price": 85.00,
+        "price": 2125000,
         "discount": 0,
         "sizes": ["One Size"],
         "colors": ["Gold", "Silver", "Rose Gold", "Navy", "Burgundy"],
@@ -165,7 +165,7 @@
     {
         "name": "Out of Stock Vintage Tee",
         "description": "Limited edition vintage t-shirt - currently out of stock.",
-        "price": 55.00,
+        "price": 1375000,
         "discount": 0,
         "sizes": ["S", "M", "L"],
         "colors": ["Faded Black", "Vintage White"],
@@ -180,7 +180,7 @@
     {
         "name": "Winter Wool Coat",
         "description": "Elegant wool coat for cold winter days. Features button closure and side pockets.",
-        "price": 299.99,
+        "price": 7499750,
         "discount": 40,
         "sizes": ["XS", "S", "M", "L", "XL"],
         "colors": ["Black", "Camel", "Gray", "Navy"],

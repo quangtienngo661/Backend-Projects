@@ -21,7 +21,10 @@ const userRoutes = require('./routes/user.route');
 const productRoutes = require('./routes/product.route');
 const cartRoutes = require('./routes/cart.route');
 const orderRoutes = require('./routes/order.route');
+const paymentRoutes = require('./routes/payment.route');
 
+// Swagger Doc
+const { swaggerSpec, swaggerUI } = require('./swagger')
 
 const app = express();
 connectDB();
@@ -39,11 +42,15 @@ app.use((req, res, next) => {
     next();
 });
 
+// Swagger setup
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+
 // Routes
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/product', productRoutes);
 app.use('/api/v1/cart', cartRoutes);
 app.use('/api/v1/order', orderRoutes);
+app.use('/api/v1/payment', paymentRoutes);
 
 // Middleware for catching unexisted routes
 // For more specifically, if there is an unmatched route ascendingly, this middleware will run 
@@ -55,4 +62,4 @@ app.use(errorHandler);
 module.exports = app;
 
 
-// TODO: api document as swagger
+// TODO: api document for every route
