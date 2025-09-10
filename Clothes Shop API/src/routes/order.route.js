@@ -3,8 +3,11 @@ const { restrictToRole } = require('../middlewares/role.middleware');
 const { createOrder, cancelOrder, getOrders, getOrder, updateOrderStatus } = require('../controllers/order.controller');
 const auth = require('../middlewares/auth.middleware');
 const router = express.Router();
+const validateRequest = require('../middlewares/validator.middleware');
+const { createOrderValidation } = require('../validations/order.validation');
 
-router.post('/', auth, restrictToRole('user'), createOrder);
+
+router.post('/', auth, restrictToRole('user'), createOrderValidation, validateRequest, createOrder);
 router.patch('/:orderId/cancel-order', auth, restrictToRole('user'), cancelOrder);
 router.patch('/:orderId/update-order-status', auth, restrictToRole('admin'), updateOrderStatus);
 router.get('/', auth, getOrders);

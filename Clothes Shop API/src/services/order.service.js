@@ -4,7 +4,7 @@ const Order = require("../models/Order.model");
 const Product = require("../models/Product.model");
 const AppError = require("../utils/AppError.util");
 const { pay } = require('../controllers/payment.controller')
-const paymentSevice = require('../services/payment/payment.service')
+const paymentSevice = require('./external-services/payment/payment.service')
 
 exports.createOrder = async (req, res, next) => {
     // TODO: comment session when developing

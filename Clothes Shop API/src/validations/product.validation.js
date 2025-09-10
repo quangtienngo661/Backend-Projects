@@ -128,5 +128,38 @@ const createAndUpdateProductValidation = [
 ];
 
 // TODO: bulk create validation and custom validation for each documents of products array
+const bulkCreateProductValidation = (product) => {
+    const { 
+        name, 
+        description, 
+        price, 
+        discount, 
+        sizes, 
+        colors, 
+        stock, 
+        images, 
+        category,  
+        isActive
+    } = product;
 
-module.exports = { createAndUpdateProductValidation }
+    if (typeof name !== 'String') {
+        throw new AppError("Name must be a string type", 400);
+    }
+
+    if (name.length < 2 || name.length > 100) {
+        throw new AppError("Name's length must be between 2 and 100 characters");
+    }
+
+    if (typeof description !== 'String') {
+        throw new AppError("Description must be a string type", 400);
+    }
+
+    if (description.length > 1000) {
+        throw new AppError("Description's length mustn't be over 1000 characters");
+    }
+
+}
+
+module.exports = { 
+    createAndUpdateProductValidation, 
+}

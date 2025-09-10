@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const { default: axios } = require('axios');
-const AppError = require('../../utils/AppError.util');
+const AppError = require('../../../utils/AppError.util');
 
 const momoPayment = async (order) => {
     try {

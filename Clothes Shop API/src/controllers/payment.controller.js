@@ -1,4 +1,4 @@
-const paymentService = require("../services/payment/payment.service");
+const paymentService = require("../services/external-services/payment/payment.service");
 const catchAsync = require("../utils/catchAsync.util");
 
 // TODO: re-structure code

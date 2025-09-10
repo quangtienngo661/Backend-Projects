@@ -28,19 +28,12 @@ exports.addToCart = async (req, res, next) => {
     const userId = req.user.id;
     const { product, quantity = 1, size, color } = req.body;
 
-    if (!product || !size || !color) {
-        throw new AppError("Missing required field of adding new item into cart!", 400)
-    }
-
     const userCart = await Cart.findOne({ user: userId });
     if (!userCart) {
         throw new AppError("User's cart not found", 404)
     }
 
-    const existingProduct = await Product.findById(product);
-    if (!existingProduct) {
-        throw new AppError("Product not found", 404);
-    }
+    const existingProduct = await Product.findById(product)
 
     if (existingProduct.stock === 0) {
         throw new AppError("This product is out of stock!");
@@ -58,19 +51,8 @@ exports.addToCart = async (req, res, next) => {
     )
 
     if (existingCartItem) {
-        if (existingCartItem.quantity + quantity > existingProduct.stock) {
-            throw new AppError(`Only ${existingProduct.stock - existingCartItem.quantity} more products can be added into cart!`, 409)
-        }
         existingCartItem.quantity += quantity;
     } else {
-        if (!existingProduct.colors.includes(color)) {
-            throw new AppError("The product doesn't have this color")
-        }
-
-        if (!existingProduct.sizes.includes(size)) {
-            throw new AppError("The product doesn't have this size")
-        }
-
         userCart.items.push({
             product,
             quantity,
@@ -80,7 +62,11 @@ exports.addToCart = async (req, res, next) => {
     };
 
     const updatedCart = await userCart.save();
-    await updatedCart.populate('items.product');
+    await updatedCart
+        .populate({
+            path: "items.product",
+            select: "_id name discount"
+        })
 
     return updatedCart;
 }
@@ -144,15 +130,17 @@ exports.updateItemQuantity = async (req, res, next) => {
 
     if (modification === '+') {
         if (userCart.items[itemIndex].quantity === existingProduct.stock) {
-            throw new AppError("This product is out of stock", 409)
+            throw new AppError("Cannot add more, reached available stock", 409)
         }
         userCart.items[itemIndex].quantity += 1;
-    } else {
+    } else if (modification === '-') {
         if (userCart.items[itemIndex].quantity === 1) {
             userCart.items.splice(itemIndex, 1);
         } else {
             userCart.items[itemIndex].quantity -= 1;
         }
+    } else {
+        throw new AppError("Modification command is invalid, please try again!", 400)
     }
 
     const updatedCart = await userCart.save();

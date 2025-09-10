@@ -1,6 +1,6 @@
-const Order = require('../../models/Order.model');
-const Product = require('../../models/Product.model');
-const AppError = require('../../utils/AppError.util');
+const Order = require('../../../models/Order.model');
+const Product = require('../../../models/Product.model');
+const AppError = require('../../../utils/AppError.util');
 const momoPayment = require('./momo.adapter');
 
 exports.pay = async (order, paymentMethod) => {
@@ -45,9 +45,8 @@ exports.paymentCallback = async (req, res, next) => {
             paymentSuccess = callbackInfo.resultCode === "0";
             break;
         case 'ZALOPAY':
-            paymentSuccess = callbackInfo.resultCode === 1;
+            paymentSuccess = callbackInfo.resultCode === "1";
             break;
-
         default:
             throw new AppError("Unsupported payment method", 400);
     }
